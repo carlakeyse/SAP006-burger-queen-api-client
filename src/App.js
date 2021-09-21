@@ -1,14 +1,15 @@
 import './App.css';
+import Button from './components/button';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       <h1>
-         Burger Queen
-       </h1>
-         
-      </header>
+      <Button variant="primary">
+        Tweetar
+      </Button>
+      <Button variant="secondary">
+        Mais
+      </Button>
     </div>
   );
 }
@@ -16,7 +17,14 @@ function App() {
 export default App;
 
 
-/* <p>
+/* <header className="App-header">
+       <h1>
+         Burger Queen
+       </h1>
+         
+      </header>
+
+<p>
      Edit <code>src/App.js</code> and save to reload.
    </p>
         <a

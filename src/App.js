@@ -1,37 +1,7 @@
 
-import Button from './components/button';
+import React from "react";
+import Root from "./components/Root";
 
-function App() {
-  return (
-    <div>
-      <Button variant="primary">
-        Tweetar
-      </Button>
-      <Button variant="secondary">
-        Mais
-      </Button>
-    </div>
-  );
-}
+const App = () => <Root />
 
 export default App;
-
-
-/* <header className="App-header">
-       <h1>
-         Burger Queen
-       </h1>
-         
-      </header>
-
-<p>
-     Edit <code>src/App.js</code> and save to reload.
-   </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */

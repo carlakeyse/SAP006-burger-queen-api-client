@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../login/style.css';
+import './style.css';
 
-const Login = () =>
+function Login() {
+  return (
     <header>
      <h1>Entrar</h1>
      <form>
@@ -11,11 +12,14 @@ const Login = () =>
        <button type='submit' onClick={Login}>
          Entrar
        </button>
-       <Link to='/register'>Cadastrar</Link>
+       <div>
+       <Link className='link' to='/register'>Cadastrar</Link>
+       </div> 
      </form>
      </header> 
-
-
+  );
+}
+    
 export default Login;
 
 /* function Login() {
@@ -23,6 +27,7 @@ export default Login;
     <div>
       <h1>
           Login
+          
       </h1>
     </div>
   );

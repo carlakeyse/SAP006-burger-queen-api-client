@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../register/style.css';
+import './style.css';
 
-const Register = () => 
-    <header>
+function Register() {
+    return (
+        <header>
     <h1>Cadastro</h1>
     <form>
     <input type='name' name='name' placeholder='Nome' />
@@ -16,8 +17,14 @@ const Register = () =>
     <button type='submit' onClick={Register}>
         Cadastrar
     </button>
-    <Link to='/register'>Cadastrar</Link>
+    <div>
+    <Link className='link' to='/login'>Já tenho uma conta</Link>
+    </div>
     </form>
     </header>
+    );
+}
+    
 
 export default Register;
+

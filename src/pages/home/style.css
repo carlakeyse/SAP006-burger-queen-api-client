@@ -30,8 +30,7 @@ input {
     color: blue;
 }
 
-.link {
+p {
     display: flex;
     justify-content: center;
-    padding: 10px;
 }

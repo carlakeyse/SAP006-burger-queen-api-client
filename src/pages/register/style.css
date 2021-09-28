@@ -37,3 +37,8 @@ select {
     padding: 5px 20px;
     color: blue;
 }
+
+.link {
+    display: flex;
+    justify-content: center;
+}

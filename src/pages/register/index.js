@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../register/style.css';
+import '../Register/style.css';
 
 const Register = () => 
     <header>
@@ -16,7 +16,7 @@ const Register = () =>
     <button type='submit' onClick={Register}>
         Cadastrar
     </button>
-    <Link to='/register'>Cadastrar</Link>
+    <Link className='link' to='/login'>Já tem uma conta?</Link>
     </form>
     </header>
 

@@ -1,13 +1,13 @@
 import React from "react";
 import { Router, Switch, Route} from 'react-router-dom';
 import { History } from "../history";
-import Home from "../pages/home";
-import Login from "../pages/login";
-import Register from "../pages/register";
-import Hall from "../pages/hall";
-import MainMenu from "../pages/mainMenu";
-import BreakMenu from "../pages/breakMenu";
-import Kitchen from "../pages/kitchen";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import Hall from "../pages/Hall";
+import MainMenu from "../pages/MainMenu";
+import BreakMenu from "../pages/BreakMenu";
+import Kitchen from "../pages/Kitchen";
 import PrivateRoute from "./PrivateRoute";
 
 const Root = () => (

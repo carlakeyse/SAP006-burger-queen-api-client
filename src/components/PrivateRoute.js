@@ -1,6 +1,6 @@
 import React from "react";
-import { Route, Redirect } from 'react-router';
-import { isLogged } from '../utils/auth';
+import { Route, Redirect } from 'react-router-dom';
+import { isLogged } from '../Utils/auth';
 
 const PrivateRoute = props => isLogged()
     ? <Route { ...props } />

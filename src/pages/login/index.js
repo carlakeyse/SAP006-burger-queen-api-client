@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../login/style.css';
+import '../Login/style.css';
 
 const Login = () =>
     <header>
@@ -11,7 +11,9 @@ const Login = () =>
        <button type='submit' onClick={Login}>
          Entrar
        </button>
-       <Link to='/register'>Cadastrar</Link>
+ 
+       <Link className='link' to='/register'>Cadastrar</Link>
+
      </form>
      </header> 
 

@@ -1,7 +1,11 @@
 
 import React from "react";
-import Root from "./components/Root";
+import Routes from "./routes";
 
-const App = () => <Root />
+const App = () => (
+       <div> 
+        <Routes />
+      </div>
+ );
 
 export default App;

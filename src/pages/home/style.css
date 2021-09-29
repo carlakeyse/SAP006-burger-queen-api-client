@@ -30,7 +30,14 @@ input {
     color: blue;
 }
 
+<<<<<<< HEAD:src/pages/login/style.css
 .link {
     display: flex;
     justify-content: center;
 }
+=======
+p {
+    display: flex;
+    justify-content: center;
+}
+>>>>>>> 5e6a503f3df85735256e16492342e396a61ea207:src/pages/home/style.css

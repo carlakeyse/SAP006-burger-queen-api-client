@@ -1,5 +1,9 @@
 import React from "react";
 
-const MainMenu = () => <h1>Menu Principal</h1>
+function MainMenu() {
+    return(
+    <h1>Menu Principal</h1>
+    );
+ }
 
-export default MainMenu
+export default MainMenu;

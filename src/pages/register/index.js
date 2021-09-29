@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import '../Register/style.css';
+=======
+import './style.css';
+>>>>>>> 5e6a503f3df85735256e16492342e396a61ea207
 
-const Register = () => 
-    <header>
+function Register() {
+    return (
+        <header>
     <h1>Cadastro</h1>
     <form>
     <input type='name' name='name' placeholder='Nome' />
@@ -16,8 +21,18 @@ const Register = () =>
     <button type='submit' onClick={Register}>
         Cadastrar
     </button>
+<<<<<<< HEAD
     <Link className='link' to='/login'>Já tem uma conta?</Link>
+=======
+    <div>
+    <Link className='link' to='/login'>Já tenho uma conta</Link>
+    </div>
+>>>>>>> 5e6a503f3df85735256e16492342e396a61ea207
     </form>
     </header>
+    );
+}
+    
 
 export default Register;
+

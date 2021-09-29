@@ -32,6 +32,7 @@ input {
 
 select {
     margin: auto;
+    width: 210px;
     border-radius: 10px;
     display: flex;
     padding: 5px 20px;

@@ -11,6 +11,9 @@ h1 {
     text-align: center;
 }
 
+.user-login-form-control{
+    text-align: center;
+}
 button {
     display: flex;
     margin: auto;

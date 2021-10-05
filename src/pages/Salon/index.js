@@ -1,9 +1,9 @@
 import React from "react";
 
-function Hall() {
+function Salon() {
     return(
     <h1>Salão</h1>
     );
  }
 
-export default Hall;
+export default Salon;

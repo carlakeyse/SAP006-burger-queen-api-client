@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { LoggedUser } from '../../Services/auth';
 import { useHistory } from 'react-router-dom';
 import StoreContext from '../Store/Context';
 import { Link } from 'react-router-dom';
@@ -27,6 +28,7 @@ const UserLogin = () => {
       ...values,
       [name]: value,
     });
+    console.log(event.target.value);
   }
 
   function onSubmit(event) {
@@ -68,10 +70,12 @@ const UserLogin = () => {
         </div>
         {error && (
           <div className="user-login__error">{error}</div>
-        )}  
-        <button type='submit' onClick={UserLogin}>
+        )}
+        <br/>
+        <button type='submit' onClick={onSubmit}>
           Entrar
         </button>
+        <br/>
         <div>
           <Link className='link' to='/register'>Cadastrar</Link>
         </div>

@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: blue;
+  background-color: rgb(156, 183, 194);
+  color: rgb(255, 255, 255);
  
 }
 
@@ -14,11 +15,3 @@ code {
     monospace;
 }
 
-.button {
-  border-radius: 15px;
-  border: none;
-  padding: 5px 20px;
-  cursor: pointer;
-  color: blue;
-  transition: .2s;
-}

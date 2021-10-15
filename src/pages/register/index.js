@@ -1,69 +1,17 @@
-import React, { useState, useContext } from "react";
-import { CreateUser } from "../../Services/auth";
-import { Link, useHistory } from 'react-router-dom';
-import StoreContext from '../Store/Context';
+import React from "react";
+import Input from "../../components/Input/Input";
+import Button from "../../components/Button/Button";
+import useFormRegister from "./useFormRegister";
+import validationRegister from "./validationRegister";
+import { Link } from 'react-router-dom';
+
 import "./style.css";
 
-function initialState() {
-  return { name: '', password: '', role: '', email: '' };
-}
-
-function Register({ name, password, email, role }) {
-  if (name ==='admin' && password === "admin" && email === 'admin' && role === 'admin') {
-    return { token: '123456'};
-  }
-  return { error: 'Preencha todos os campos' };
-}
 
   const UserRegister = () => {
-  // values é um state (o values é o primeiro argumento)
-  // setValues atualiza o state "values" (o setValues é o segundo argumento)
+    const { onChange, onSubmit, onLogin, errors } = useFormRegister(validationRegister);
 
-    const [values, setValues] = useState(initialState);
-    const [error, setError] = useState(null);
-    const { setToken } = useContext(StoreContext);
-    const history = useHistory();
-  
-    function onChange(event) {
-      const { value, name } = event.target;
-      setValues({
-        ...values,
-        [name]: value,
-      });
-    }
-  
-    function onSubmit(event) {
-      event.preventDefault();
-      const { token, error } = Register(values);
-     if (token) {
-       setToken(token);
-       return history.push('/');
-     }
-  
-     setError(error);
-     setValues(initialState);
-  
-}
 
-      CreateUser(values.name, values.email, values.password, values.role)
-      .then((response) => {
-        if (response.code === 400) {
-          
-        } else if (response.code === 403) {
-          alert("E-mail em uso")
-        } else {
-          console.log(response.token);
-
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('id', response.id);
-
-          alert("Cadastro realizado com sucesso. Efetue o Login")
-          Register();
-        }
-      })
-      .catch((errors) => {
-        console.log(errors)
-      });   
   return (
     <header>
       <h1>Cadastro</h1>
@@ -71,69 +19,73 @@ function Register({ name, password, email, role }) {
 
         <div className="user-register-form-control">
           <label htmlFor="name">Nome Completo</label>
-          <input
-              type="text"
-              name="name"
-              onChange={onChange} 
-              value={values.name}
-          />
+            <Input
+                name="name"
+                type="text"
+                onChange={onChange} 
+                
+            />
+            <p>{errors.name && errors.name}</p>
         </div>
 
         <div className="user-register-form-control">
           <label htmlFor="role">Escolha sua função</label>
           <br />
-          <label htmlFor="salon">Salão</label>
-            <input
+          <label className="label" htmlFor="salon">Salão</label>
+            <Input
                 type="radio"
                 name="role"
-                text="Salão"
+                value="salon"
                 onChange={onChange}
-                value={values.role}
             />
-          <label htmlFor="salon">Cozinha</label>
-            <input
+          <label className="label" htmlFor="kitchen">Cozinha</label>
+            <Input
                 type="radio"
                 name="role"
-                text="Cozinha" 
+                value="kitchen" 
                 onChange={onChange}
-                value={values.role}
             />
+            <p>{errors.role}</p>
         </div>
 
         <div className="user-register-form-control">
           <label htmlFor="email">Email</label>
-          <input
-              type="email"
+          <Input
               name="email"
+              type="email"
               onChange={onChange}
-              value={values.email} />
+             
+          />
+          <p>{errors.email}</p>
         </div>
 
         <div className="user-register-form-control">
           <label htmlFor="passord">Senha</label>
-          <input
-               type="password"
+          <Input
                name="password"
+               type="password"
                onChange={onChange}
-               value={values.password} />
+           
+          />
+          <p>
+              {" "}
+              {errors.password}
+            </p>
         </div>
         <br />
-        <button type="submit" onClick={onSubmit}>
+        <Button type="submit" onClick={onSubmit}>
           Cadastrar
-        </button>
+        </Button>
         <div>
           <br />
-          <Link className="link" to="/login">
+          <Link className="link" to="/login" onClick={onLogin}>
             Já tenho uma conta
           </Link>
         </div>
-        {error && (
-          <div className="user-login__error">{error}</div>
-        )}
       </form>
     </header>
   );
-}
+};
 
 export default UserRegister;
 
@@ -160,3 +112,24 @@ export default UserRegister;
   useEffect(() => {
     console.log(nome);
   }, [nome]); */
+
+  /*else {
+    console.log(response.token);
+
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('id', response.id);
+
+    alert("Cadastro realizado com sucesso. Efetue o Login")
+    Register();
+  } */
+
+  /*  const { token, error } = Register(values);
+     if (token) {
+       setToken(token);
+       return history.push('/');
+     }
+  
+     setErrors(error);
+     setValues(initialState);
+  
+}*/

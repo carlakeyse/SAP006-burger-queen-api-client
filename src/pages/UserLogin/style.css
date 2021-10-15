@@ -14,25 +14,6 @@ h1 {
 .user-login-form-control{
     text-align: center;
 }
-button {
-    display: flex;
-    margin: auto;
-    border-radius: 15px;
-    border: none;
-    padding: 5px 20px;
-    cursor: pointer;
-    color: rgb(2, 42, 61);
-    transition: .2s;
-}
-
-input {
-    background: rgb(247, 228, 219);
-    margin: auto;
-    display: flex;
-    border-radius: 10px;
-    padding: 5px 20px;
-    color: rgb(1, 23, 37);
-}
 
 .link {
     display: flex;

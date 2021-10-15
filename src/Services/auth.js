@@ -1,31 +1,34 @@
-export const CreateUser =  async (nameUser, emailUser, passwordUser, roleUser) => {
-    const url = 'https://lab-api-bq.herokuapp.com/users';
-    const response = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json"  },
-        body: JSON.stringify({
-            name: nameUser,
-            email: emailUser,
-            password: passwordUser,
-            role: roleUser,
-            restaurant: "Stellar Burger",        
+export const CreateUser = async (name, email, password, role) => {
+
+  return await fetch('https://lab-api-bq.herokuapp.com/users', {
+    method: "POST",
+    headers: { 
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      password: password,
+      role: role,
+      restaurant: "Stellar Burger",
     }),
- });
- return response.json();
+  }).then((res) => res.json())
 };
 
 //stringfy para enviar info
 //parse para pegar info
 
-export const LoggedUser = async (emailUser, passwordUser) => {
-    const url = 'https://lab-api-bq.herokuapp.com/auth';
-    const responseLogged = await fetch(url, {
+export const LoggedUser = async (email, password) => { 
+  console.log(email, password);
+    return await fetch('https://lab-api-bq.herokuapp.com/auth' , {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({
-            email: emailUser,
-            password: passwordUser,
+            email: email,
+            password: password,
     }),
- });
- return responseLogged;
+ }).then(res => res.json());
 };
+

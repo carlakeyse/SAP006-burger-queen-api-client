@@ -1,48 +1,16 @@
-import React, { useState, useContext } from 'react';
-import { LoggedUser } from '../../Services/auth';
-import { useHistory } from 'react-router-dom';
-import StoreContext from '../Store/Context';
+import React from 'react';
+import Button from '../../components/Button/Button';
+import Input from '../../components/Input/Input';
+import useFormLogin from './useFormLogin';
+import validationLogin from './validationLogin';
 import { Link } from 'react-router-dom';
+
 import './style.css';
 
-function initialState() {
-  return { user: '', password: '' };
-}
-
-function Login({ user, password }) {
-  if (user ==='admin' && password === "admin") {
-    return { token: '123456'};
-  }
-  return { error: 'Usuário ou senha inválido' };
-}
-
 const UserLogin = () => {
-  const [values, setValues] = useState(initialState);
-  const [error, setError] = useState(null);
-  const { setToken } = useContext(StoreContext);
-  const history = useHistory();
+  const { onChange, values, onSubmit, errors } = useFormLogin(validationLogin);
+  // const history = useHistory();
 
-  function onChange(event) {
-    const { value, name } = event.target;
-    setValues({
-      ...values,
-      [name]: value,
-    });
-    console.log(event.target.value);
-  }
-
-  function onSubmit(event) {
-    event.preventDefault();
-    const { token, error } = Login(values);
-   if (token) {
-     setToken(token);
-     return history.push('/');
-   }
-
-   setError(error);
-   setValues(initialState);
-
-  }
 
   return (
     <div className="user-login">
@@ -50,31 +18,29 @@ const UserLogin = () => {
       <form onSubmit={onSubmit}>
         <div className="user-login-form-control">
           <label htmlFor="user">Email</label>
-          <input
-              id='user'
+          <Input
+              name='email'
               type='email'
-              name='user'
               onChange={onChange}
-              value={values.user}
+              value={values.email}
             />
+          <p>{errors.email}</p>
         </div>
         <div className="user-login-form-control">
           <label htmlFor="password">Senha</label>
-          <input
-              id='password'
-              type='password'
+          <Input
               name='password'
+              type='password'
               onChange={onChange}
               value={values.password}
             />
+        <p>{errors.password}</p>
         </div>
-        {error && (
-          <div className="user-login__error">{error}</div>
-        )}
+       
         <br/>
-        <button type='submit' onClick={onSubmit}>
+        <Button type='submit' onClick={onSubmit}>
           Entrar
-        </button>
+        </Button>
         <br/>
         <div>
           <Link className='link' to='/register'>Cadastrar</Link>

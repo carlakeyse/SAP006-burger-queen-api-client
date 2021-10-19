@@ -11,6 +11,7 @@ const UserLogin = () => {
   const { onChange, values, onSubmit, errors } = useFormLogin(validationLogin);
 
   return (
+  <div className= "container-login"> 
     <div className="user-login">
       <h1>Entrar</h1>
       <form onSubmit={onSubmit}>
@@ -22,7 +23,7 @@ const UserLogin = () => {
               value={values.email}
               onChange={onChange}
             />
-          <p>{errors.email && errors.email}</p>
+          <p className="error-message-login">{errors.email && errors.email}</p>
         </div>
         <div className="user-login-form-control">
           <label htmlFor="password">Senha</label>
@@ -32,7 +33,7 @@ const UserLogin = () => {
               value={values.password}
               onChange={onChange}
             />
-        <p>{errors.password && errors.password}</p>
+        <p className="error-message-login">{errors.password && errors.password}</p>
         </div>
        
         <br/>
@@ -41,10 +42,11 @@ const UserLogin = () => {
         </Button>
         <br/>
         <div>
-          <Link className='link' to='/register'>Cadastrar</Link>
+          <Link className='link-login' to='/register'>Cadastrar</Link>
         </div>
       </form>
     </div>
+  </div>  
   );
 }
 

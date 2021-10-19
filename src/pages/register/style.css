@@ -11,6 +11,23 @@ h1 {
     text-align: center;
 }
 
+.container-register {
+    display: flex;
+    justify-content: center;
+    min-width: 13em;
+    min-height: 13em;  
+    padding: 6% 8% 2% 8%;
+}
+
+.user-register {
+    width: 20em;
+    padding: 0px 0px 20px;
+    margin-top: auto;
+    background-color: #787cbe;
+    border-radius: 10px;
+    box-shadow: 3px 3px 1px 0px #00000060;
+  }
+
 .user-register-form-control {
     text-align: center;
 }
@@ -19,11 +36,19 @@ h1 {
     display: flexbox;
     justify-content: center;
     padding: 5px 20px;
-    color: rgb(211, 80, 4);
+    color: #fac483;
 }
 
-.link {
+.error-message-register {
+    font-size: 14px;
+    font-weight: bold;
+    color: #f5b260;
+}
+.link-register {
     display: flex;
     justify-content: center;
+    text-align: center;
+    font-size: 16px;
     padding: 10px;
+    color: #fac483;
 }

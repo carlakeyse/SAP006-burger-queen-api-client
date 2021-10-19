@@ -9,83 +9,86 @@ import "./style.css";
 
 
   const UserRegister = () => {
-    const { onChange, values, onSubmit, onLogin, errors } = useFormRegister(validationRegister);
+    const { onChange, values, onSubmit, onLogin, errors } =
+      useFormRegister(validationRegister);
 
-
-  return (
-    <header>
-      <h1>Cadastro</h1>
-      <form onSubmit={onSubmit}>
-
-        <div className="user-register-form-control">
-          <label htmlFor="name">Nome Completo</label>
-            <Input
+    return (
+      <div className="container-register">
+       <div className="user-register">
+        <header>
+          <h1>Cadastro</h1>
+          <form onSubmit={onSubmit}>
+            <div className="user-register-form-control">
+              <label htmlFor="name">Nome Completo</label>
+              <Input
                 name="name"
                 type="text"
-                onChange={onChange} 
+                onChange={onChange}
                 value={values.name}
-            />
-            <p>{errors.name && errors.name}</p>
-        </div>
+              />
+              <p className="error-message-register">{errors.name && errors.name}</p>
+            </div>
 
+            <div className="user-register-form-control">
+              <label htmlFor="email">Email</label>
+              <Input
+                name="email"
+                type="email"
+                onChange={onChange}
+                value={values.email}
+              />
+              <p className="error-message-register">{errors.email}</p>
+            </div>
 
-        <div className="user-register-form-control">
-          <label htmlFor="email">Email</label>
-          <Input
-              name="email"
-              type="email"
-              onChange={onChange}
-              value={values.email}
-          />
-          <p>{errors.email}</p>
-        </div>
-
-        <div className="user-register-form-control">
-          <label htmlFor="passord">Senha</label>
-          <Input
-               name="password"
-               type="password"
-               onChange={onChange}
-               value={values.password}
-          />
-          <p>
-              {" "}
-              {errors.password}
-            </p>
-        </div>
-        <div className="user-register-form-control">
-          <label htmlFor="role">Escolha sua função</label>
-          <br />
-          <label className="label" htmlFor="salon">Salão</label>
-            <Input
+            <div className="user-register-form-control">
+              <label htmlFor="passord">Senha</label>
+              <Input
+                name="password"
+                type="password"
+                onChange={onChange}
+                value={values.password}
+              />
+              <p className="error-message-register"> {errors.password}</p>
+            </div>
+            <div className="user-register-form-control">
+              <label htmlFor="role">Escolha sua função</label>
+              <br />
+              <label className="label" htmlFor="salon">
+                Salão
+              </label>
+              <Input
                 type="radio"
                 name="role"
                 value="salon"
                 onChange={onChange}
-            />
-          <label className="label" htmlFor="kitchen">Cozinha</label>
-            <Input
+              />
+              <label className="label" htmlFor="kitchen">
+                Cozinha
+              </label>
+              <Input
                 type="radio"
                 name="role"
-                value="kitchen" 
+                value="kitchen"
                 onChange={onChange}
-            />
-            <p>{errors.role}</p>
-        </div>
-        <br />
-        <Button type="submit" onClick={onSubmit}>
-          Cadastrar
-        </Button>
-        <div>
-          <br />
-          <Link className="link" to="/login" onClick={onLogin}>
-            Já tenho uma conta
-          </Link>
-        </div>
-      </form>
-    </header>
-  );
-};
+              />
+              <p className="error-message-register">{errors.role}</p>
+            </div>
+            <br />
+            <Button type="submit" onClick={onSubmit}>
+              Cadastrar
+            </Button>
+            <div>
+              <br />
+              <Link className="link-register" to="/login" onClick={onLogin}>
+                Já tenho uma conta
+              </Link>
+            </div>
+          </form>
+        </header>
+       </div>
+      </div>
+    );
+  };
 
 export default UserRegister;
 

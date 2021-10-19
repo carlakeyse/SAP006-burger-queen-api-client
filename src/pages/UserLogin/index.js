@@ -9,8 +9,6 @@ import './style.css';
 
 const UserLogin = () => {
   const { onChange, values, onSubmit, errors } = useFormLogin(validationLogin);
-  // const history = useHistory();
-
 
   return (
     <div className="user-login">
@@ -21,20 +19,20 @@ const UserLogin = () => {
           <Input
               name='email'
               type='email'
-              onChange={onChange}
               value={values.email}
+              onChange={onChange}
             />
-          <p>{errors.email}</p>
+          <p>{errors.email && errors.email}</p>
         </div>
         <div className="user-login-form-control">
           <label htmlFor="password">Senha</label>
           <Input
               name='password'
               type='password'
-              onChange={onChange}
               value={values.password}
+              onChange={onChange}
             />
-        <p>{errors.password}</p>
+        <p>{errors.password && errors.password}</p>
         </div>
        
         <br/>
@@ -51,7 +49,6 @@ const UserLogin = () => {
 }
 
 export default UserLogin;
-
 
 
 

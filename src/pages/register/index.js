@@ -9,7 +9,7 @@ import "./style.css";
 
 
   const UserRegister = () => {
-    const { onChange, onSubmit, onLogin, errors } = useFormRegister(validationRegister);
+    const { onChange, values, onSubmit, onLogin, errors } = useFormRegister(validationRegister);
 
 
   return (
@@ -23,11 +23,36 @@ import "./style.css";
                 name="name"
                 type="text"
                 onChange={onChange} 
-                
+                value={values.name}
             />
             <p>{errors.name && errors.name}</p>
         </div>
 
+
+        <div className="user-register-form-control">
+          <label htmlFor="email">Email</label>
+          <Input
+              name="email"
+              type="email"
+              onChange={onChange}
+              value={values.email}
+          />
+          <p>{errors.email}</p>
+        </div>
+
+        <div className="user-register-form-control">
+          <label htmlFor="passord">Senha</label>
+          <Input
+               name="password"
+               type="password"
+               onChange={onChange}
+               value={values.password}
+          />
+          <p>
+              {" "}
+              {errors.password}
+            </p>
+        </div>
         <div className="user-register-form-control">
           <label htmlFor="role">Escolha sua função</label>
           <br />
@@ -46,31 +71,6 @@ import "./style.css";
                 onChange={onChange}
             />
             <p>{errors.role}</p>
-        </div>
-
-        <div className="user-register-form-control">
-          <label htmlFor="email">Email</label>
-          <Input
-              name="email"
-              type="email"
-              onChange={onChange}
-             
-          />
-          <p>{errors.email}</p>
-        </div>
-
-        <div className="user-register-form-control">
-          <label htmlFor="passord">Senha</label>
-          <Input
-               name="password"
-               type="password"
-               onChange={onChange}
-           
-          />
-          <p>
-              {" "}
-              {errors.password}
-            </p>
         </div>
         <br />
         <Button type="submit" onClick={onSubmit}>

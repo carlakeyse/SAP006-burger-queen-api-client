@@ -1,19 +1,21 @@
-import React, { useContext } from "react";
+import { isAuthenticated } from "././Services/validateAuth";
 import { Route, Redirect } from "react-router-dom";
-import StoreContext from "../../Store/Context";
 
-const RoutesPrivate = ({ component: Component, ...rest}) => {
-    const { token } = useContext(StoreContext);
-    
-    return (
-        <Route
-           { ...rest}
-           render={() => token
-            ? <Component {...rest} />
-            : <Redirect to='/login' />
-        }
-      />
-   )
- } 
+ const RoutesPrivate = ({ component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        isAuthenticated() ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{ pathname: "/login", state: { from: props.location } }}
+          />
+        )
+      }
+    />
+  );
+};
 
- export default RoutesPrivate;
+export default RoutesPrivate;

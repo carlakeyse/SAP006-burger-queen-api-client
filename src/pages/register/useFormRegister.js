@@ -1,12 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { validationRegister } from "./validationRegister";
 import { CreateUser } from "../../Services/auth";
 import { useHistory } from "react-router";
 
 
 const useFormRegister = () => {
+  
+  const onLogin = () => history.push('/login')
 
   localStorage.clear();
+  
+  const [errors, setErrors] = useState({});
 
   const [values, setValues] = useState({
     name: "",
@@ -14,17 +18,8 @@ const useFormRegister = () => {
     password: "",
     role: "",
   });
+  console.log(values);
   
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
-    password: "",
-    role: "",
-  });
-  
-  useEffect(() => {
-    return { errors }
-  }, [errors])
   
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -35,7 +30,6 @@ const useFormRegister = () => {
 };
 
 const history = useHistory()
-const onLogin = () => history.push('/login')
 
 const onSubmit = (event) => {
   event.preventDefault();
@@ -61,7 +55,7 @@ const onSubmit = (event) => {
     console.log(errors)
   });
 };
-return { onChange, onSubmit, onLogin, errors };
+return { onChange, onSubmit, onLogin, values, errors };
 }
 
 export default useFormRegister;

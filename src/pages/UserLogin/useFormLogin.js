@@ -5,20 +5,16 @@ import validationLogin from "./validationLogin";
 
 const useFormRegister = () => {
   localStorage.clear();
-
+  
   const [values, setValues] = useState({
     email: '',
     password: '',
   });
-
+  
   const [errors, setErrors] = useState({
     email: '',
     password: '',
   });
-
-  const history = useHistory();
-
-
   const onChange = (event) => {
     const { name, value } = event.target;
     setValues({
@@ -26,29 +22,32 @@ const useFormRegister = () => {
       [name]: value,
     });
   };
+  
+  const history = useHistory();
 
   const onSubmit = (event) => {
     event.preventDefault();
 
-    (setErrors(validationLogin(values)));
+    setErrors(validationLogin(values));
 
-    LoggedUser(values.email, values.password).then((response) => {
-      if (response.code === 400) {
-        
-      } else {
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('id', response.id);
+    LoggedUser(values.email, values.password)
+      .then((response) => {
+        if (response.code === 400) {
+          alert("E-mail e/ou senha inválidos");
+        } else {
+          localStorage.setItem("token", response.token);
+          localStorage.setItem("id", response.id);
 
-        if (response.role === "salon") {
-          history.push('/salao')
+          if (response.role === "salon") {
+            history.push("/salao");
+          } else if (response.role === "kitchen") {
+            history.push("/cozinha");
+          }
         }
-        else if (response.role === "kitchen") {
-          history.push('/cozinha')
-        }
-      }
-    }).catch((error) => {
-      console.log(error)
-    })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return { onChange, values, onSubmit, errors };

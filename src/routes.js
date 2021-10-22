@@ -1,25 +1,25 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Login from "./pages/UserLogin/index";
 import Register from "./pages/Register";
 import Salon from "./pages/Salon";
-import MainMenu from "./pages/MainMenu";
-import BreakMenu from "./pages/BreakMenu";
 import Kitchen from "./pages/Kitchen";
+import Orders from "./pages/Orders/Order";
+import ServeOrder from "./pages/Orders/ServeOrder";
 import NotFound from "./pages/NotFound/notFound";
 
 
-const Routes = () => (
+const Routes = (user) => (
     <BrowserRouter>
         <Switch>
             <Route exact path='/' component={Login} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
-            <Route path='/salao' component={Salon} />
-            <Route exact path='/menu-principal' component={MainMenu} />
-            <Route exact path='/menu-matinal' component={BreakMenu} />
-            <Route exact path='/cozinha' component={Kitchen} />
+            <Route exact path='/salao'> {user ? <Salon /> : <Redirect to="/"/>}</Route>
+            <Route exact path='/cozinha'> {user ? <Kitchen /> : <Redirect to="/" />}</Route>
+            <Route exact path='/pedidos'> {user ? <Orders /> : <Redirect to="/" />}</Route>
+            <Route exact path='/servir'> {user ? <ServeOrder /> : <Redirect to="/" />}</Route>
             <Route component={NotFound}/>
         </Switch>
     </BrowserRouter>

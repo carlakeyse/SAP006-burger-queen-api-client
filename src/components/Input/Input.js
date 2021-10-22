@@ -1,15 +1,20 @@
-import React from 'react';
-import './style.css'
+import React from "react";
+import "./style.css";
 
-const Input = ({ name, type, value, onChange }) => {
-  return ( 
-    <input
+const Input = ({ variant, name, type, value, label, onChange }) => {
+  const classes = `input ${variant}`;
+  return (
+    <label>
+      <input
+        className={classes}
         name={name}
         type={type}
         value={value}
-        onChange={onChange} 
-    />
+        onChange={onChange}
+      ></input>
+      {label}
+    </label>
   );
 };
- 
+
 export default Input;

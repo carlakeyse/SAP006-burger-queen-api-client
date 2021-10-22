@@ -1,19 +1,19 @@
-export default function validationSalon(values) {
-  let errors = { empty : true }
-
-  if(!values.table) {
-    errors.table = "Selecione uma mesa para o atendimento"
-    errors.empty = false
+export const validationSalon = (order, client, table) => {
+  let error = {};
+  error.notNull = true;
+  if (order.length === 0) {
+    error.order = 'Insira itens na comanda';
+    error.notNull = false;
+  }
+  if (!client) {
+    error.client = 'Informe o nome do cliente';
+    error.notNull = false;
+  }
+  if (!table || table >= 5) {
+    error.table = 'Escolha uma mesa';
+    error.notNull = false;
+  }
+  return error;
 }
 
-if(!values.clientInputName) {
-    errors.clientInputName = "Digite o nome do cliente"
-    errors.empty = false
-} else if (values.nameClientInput.length < 3) {
-    errors.clientInputName = "Insira no mínimo 3 caracteres"
-    errors.empty = false
-}
-
-return errors;
-}
-
+export default validationSalon;

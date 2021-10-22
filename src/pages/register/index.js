@@ -3,34 +3,39 @@ import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import useFormRegister from "./useFormRegister";
 import validationRegister from "./validationRegister";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import "./style.css";
 
+const UserRegister = () => {
+  const { onChange, values, onSubmit, onLogin, errors } =
+    useFormRegister(validationRegister);
 
-  const UserRegister = () => {
-    const { onChange, values, onSubmit, onLogin, errors } =
-      useFormRegister(validationRegister);
-
-    return (
-      <div className="container-register">
-       <div className="user-register">
+  return (
+    <div className="container-register">
+      <div className="user-register">
         <header>
           <h1>Cadastro</h1>
           <form onSubmit={onSubmit}>
-            <div className="user-register-form-control">
-              <label htmlFor="name">Nome Completo</label>
+            <div>
+              <label className="label" htmlFor="name">
+                Nome Completo
+              </label>
               <Input
                 name="name"
                 type="text"
                 onChange={onChange}
                 value={values.name}
               />
-              <p className="error-message-register">{errors.name && errors.name}</p>
+              <p className="error-message-register">
+                {errors.name && errors.name}
+              </p>
             </div>
 
-            <div className="user-register-form-control">
-              <label htmlFor="email">Email</label>
+            <div>
+              <label className="label" htmlFor="email">
+                Email
+              </label>
               <Input
                 name="email"
                 type="email"
@@ -40,8 +45,10 @@ import "./style.css";
               <p className="error-message-register">{errors.email}</p>
             </div>
 
-            <div className="user-register-form-control">
-              <label htmlFor="passord">Senha</label>
+            <div>
+              <label className="label" htmlFor="passord">
+                Senha
+              </label>
               <Input
                 name="password"
                 type="password"
@@ -50,18 +57,12 @@ import "./style.css";
               />
               <p className="error-message-register"> {errors.password}</p>
             </div>
-            <div className="user-register-form-control">
-              <label htmlFor="role">Escolha sua função</label>
-              <br />
-              <label className="label" htmlFor="salon">
-                Salão
+            <div className="user-register-role">
+              <label className="function-name" htmlFor="role">
+                Escolha sua função:
               </label>
-              <Input
-                type="radio"
-                name="role"
-                value="salon"
-                onChange={onChange}
-              />
+              <br />
+              <br />
               <label className="label" htmlFor="kitchen">
                 Cozinha
               </label>
@@ -69,6 +70,15 @@ import "./style.css";
                 type="radio"
                 name="role"
                 value="kitchen"
+                onChange={onChange}
+              />
+              <label className="label" htmlFor="salon">
+                Salão
+              </label>
+              <Input
+                type="radio"
+                name="role"
+                value="salon"
                 onChange={onChange}
               />
               <p className="error-message-register">{errors.role}</p>
@@ -85,10 +95,10 @@ import "./style.css";
             </div>
           </form>
         </header>
-       </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default UserRegister;
 
@@ -116,7 +126,7 @@ export default UserRegister;
     console.log(nome);
   }, [nome]); */
 
-  /*else {
+/*else {
     console.log(response.token);
 
     localStorage.setItem('token', response.token);
@@ -126,7 +136,7 @@ export default UserRegister;
     Register();
   } */
 
-  /*  const { token, error } = Register(values);
+/*  const { token, error } = Register(values);
      if (token) {
        setToken(token);
        return history.push('/');

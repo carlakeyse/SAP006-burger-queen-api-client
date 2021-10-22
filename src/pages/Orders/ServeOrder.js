@@ -1,11 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
-import "./style.css";
 
-function Kitchen() {
+function ServeOrder() {
   const token = localStorage.getItem("token");
-  const [preparOrder, setpreparOrder] = useState([]);
+  const [orderStatus, setOrderStatus] = useState([]);
   const url = "https://lab-api-bq.herokuapp.com/orders/";
 
   useEffect(() => {
@@ -18,14 +17,12 @@ function Kitchen() {
     })
       .then((response) => response.json())
       .then((orders) => {
-        const pendingOrder = orders.filter((itens) =>
-          itens.status.includes("pending")
-        );
-        setpreparOrder(pendingOrder);
+        const status = orders.filter((itens) => itens.status.includes("ready"));
+        setOrderStatus(status);
       });
   });
 
-  const handleStatusOrder = (id, newStatus) => {
+  const setStatus = (id, newStatus) => {
     const status = { status: newStatus };
     fetch(url + id, {
       method: "PUT",
@@ -36,7 +33,7 @@ function Kitchen() {
       body: JSON.stringify(status),
     }).then((response) => {
       response.json().then(() => {
-        const order = preparOrder;
+        const order = orderStatus;
         return order;
       });
     });
@@ -44,19 +41,14 @@ function Kitchen() {
 
   return (
     <>
-      <header name="Cozinha" />
+      <header name="Pedidos para entregar" />
 
-      <section className="orders-container">
-        {preparOrder.map((order) => {
+      <section>
+        {orderStatus.map((order) => {
           return (
             <section className="orders" key={order.id}>
-              <div className="kitchenCard">
-                <h1>
-                  {" "}
-                  {order.status
-                    .replace("pending", "Pendente")
-                    .replace("preparing", "Em andamento")}{" "}
-                </h1>
+              <div className="">
+                <h1> {order.status.replace("ready", "Para servir")} </h1>
                 <p>ID: {order.id} </p>
                 <p>Cliente: {order.client_name} </p>
                 <p>Mesa: {order.table} </p>
@@ -77,15 +69,17 @@ function Kitchen() {
                     </p>
                     <p>{items.flavor}</p>
                     <p>{items.complement}</p>
-                    <hr />
                   </div>
                 ))}
+
+                <hr className="break-line" />
+
                 <Button
-                  text="Despachar"
+                  text="Servir"
                   className="button-global"
-                  onClick={() => handleStatusOrder(order.id, "ready")}
+                  onClick={() => setStatus(order.id, "delivered")}
                 >
-                  Pronto
+                  servir
                 </Button>
               </div>
             </section>
@@ -95,4 +89,4 @@ function Kitchen() {
     </>
   );
 }
-export default Kitchen;
+export default ServeOrder;

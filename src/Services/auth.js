@@ -1,5 +1,5 @@
 export const CreateUser = async (name, email, password, role) => {
-
+console.log(CreateUser);
   return await fetch('https://lab-api-bq.herokuapp.com/users', {
     method: "POST",
     headers: { 

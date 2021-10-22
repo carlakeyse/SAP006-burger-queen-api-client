@@ -29,6 +29,12 @@ h1 {
 }
 .user-login-form-control{
     text-align: center;
+    color: aquamarine;
+}
+
+.label-login{
+  color: aquamarine;
+
 }
 
 .error-message-login {

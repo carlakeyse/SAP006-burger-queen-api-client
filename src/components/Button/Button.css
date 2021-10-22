@@ -10,20 +10,6 @@ button {
     transition: .2s;
 }
 
-/* variação primária */
-.button.primary {
-    background: rgb(26, 140, 216);
-}
-
-.button.primary:hover {
-    background: rgb(0, 172, 238);
-}
-
-/* variação secundária */
-.button.secondary {
-    background: transparent;
-}
-
-.button.secondary:hover {
-    background: rgba(217, 217, 217, 0.1);
+button:hover {
+    background: rgb(218, 191, 176);
 }

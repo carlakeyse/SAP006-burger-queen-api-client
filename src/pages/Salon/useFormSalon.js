@@ -7,7 +7,7 @@ function Salon() {
 
   const [client, setClient] = useState('');
   const [products, setProducts] = useState([]);
-  const [menu, setMenu] = useState('MainMenu');
+  const [menu, setMenu] = useState('breakfast');
   const [order, setOrder] = useState([]);
   const [table, setTable] = useState('');
  // const [selectTable, setSelectTable] = useState('');
@@ -100,7 +100,7 @@ function Salon() {
     // } else {
       // alert("deu ruim")
       }
-      return { client, products, order, setMenu, table, setTable, selectProducts, total,
+      return { client, products, order, menu, setMenu, table, setTable, selectProducts, total,
         addItem, removeItem, onSubmit, amount, onChangeClient };
   }
 

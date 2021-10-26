@@ -15,8 +15,8 @@ const UserLogin = () => {
     <div className="user-login">
       <h1>Entrar</h1>
       <form onSubmit={onSubmit}>
-        <div className="user-login-form-control">
-          <label htmlFor="user">Email</label>
+        <div>
+          <label className="label-login" htmlFor="user">Email</label>
           <Input
               name='email'
               type='email'
@@ -25,8 +25,8 @@ const UserLogin = () => {
             />
           <p className="error-message-login">{errors.email && errors.email}</p>
         </div>
-        <div className="user-login-form-control">
-          <label htmlFor="password">Senha</label>
+        <div>
+          <label className="label-login" htmlFor="password">Senha</label>
           <Input
               name='password'
               type='password'

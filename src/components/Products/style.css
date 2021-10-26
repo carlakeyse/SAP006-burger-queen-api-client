@@ -1,8 +1,5 @@
 .box-item {
-  font-size: 10px;
-  width: 140px;
-  height: 170px;
-  background-color: #9B2D0A;
+  background-color: #7bbfa693;
   border-radius: 22px;
   margin: 14px;
   margin-top: 50px;
@@ -28,30 +25,29 @@
 }
 
 .boxName{
-  background-color: blanchedalmond;
+  background-color: #FFCC80;
   border-radius: 10px;
   margin: 10px 10px 5px 10px;
   height: 40px;
   align-items: center;
-  display: flex;
 }
 
 .divName{
-  font-size: 14px;
+  font-size: 15px;
   padding: 10px;
 }
 
 .divPrice{
   text-align: center;
-  color: whitesmoke;
+  color: #020441;
   font-size: 18px;
   padding: 3px;
 }
 
 .divFlavor{
-  font-size: 14px;
+  font-variant-caps: small-caps;
   text-align: center;
-  color: #DFB120;
+  color: #FFCC80;
 }
 
 .divComplement{
@@ -64,7 +60,7 @@ color: #9B2D0A;
 .add-button{
   border-radius: 50%;
   border: solid 1px;
-  background-color: #EAAF36;
+  background-color: #FFCC80;
   color: #9B2D0A;
   font-size: 10px;
   font-weight: 800;

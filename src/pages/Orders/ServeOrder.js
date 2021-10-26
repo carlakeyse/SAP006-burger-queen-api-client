@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Button from "../../components/Button/Button";
+import "../../index.css";
 
 function ServeOrder() {
   const token = localStorage.getItem("token");
@@ -64,8 +65,8 @@ function ServeOrder() {
                 {order.Products.map((items, index) => (
                   <div key={index}>
                     <p>
-                      {" "}
-                      {items.qtd} {items.name}
+                      {items.qtd}
+                      {items.name}
                     </p>
                     <p>{items.flavor}</p>
                     <p>{items.complement}</p>

@@ -1,12 +1,12 @@
 input {
-  background: #ADAFD7;
-  font-weight: bold;
-  margin: 5px 50px 5px;
+  background: #FFCC80;
+  font-weight: 400;
+  /*margin: 5px 50px 5px;*/
   border: none;
   border-radius: 10px;
   outline: none;
   padding: 5px 20px;
-  color: #590202;
+  color: #7BBFA6;
 }
 
 input[type="radio"] {

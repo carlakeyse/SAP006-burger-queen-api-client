@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button/Button";
+import { GrAdd } from "react-icons/gr";
 import "./style.css"
 
 function Products({
@@ -29,7 +30,9 @@ function Products({
           qtd={qtd}
         >
           <div className="divButton">
-            <Button onClick={addOnClick} className="add-button"></Button>
+            <Button onClick={addOnClick} className="add-button">
+            <GrAdd className="icon-add"/>
+            </Button>
           </div>
           <div className="boxName">
             <h1 className="divName" key={productsNameKey}>

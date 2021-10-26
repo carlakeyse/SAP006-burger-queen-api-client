@@ -1,15 +1,8 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
 h1 {
     text-align: center;
 }
+
 
 .container-login {
   display: flex;
@@ -23,24 +16,22 @@ h1 {
   width: 20em;
   height: 25em;
   margin-top: auto;
-  background-color: #787cbe;
+  background-color: #7BBFA6;
   border-radius: 10px;
   box-shadow: 3px 3px 1px 0px #00000060;
 }
-.user-login-form-control{
-    text-align: center;
-    color: aquamarine;
-}
 
 .label-login{
-  color: aquamarine;
-
+  color: #020441;
+  font-weight: 600;
+  padding: 5px 70px;
 }
 
 .error-message-login {
+  text-align: center;
   font-size: 14px;
   font-weight: bold;
-  color: #f5b260;
+  color: #495C52;
 }
 
 .link-login {
@@ -48,5 +39,5 @@ h1 {
     justify-content: center;
     text-align: center;
     padding: 1px;
-    color: #fac483;
+    color: #580201;
 }

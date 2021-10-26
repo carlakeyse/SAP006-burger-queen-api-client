@@ -35,21 +35,44 @@ const Salon = () => {
   return (
     <>
       <div>
-        <section>
-          <section>
+        <section className="salon-main">
+          <section className="container-menu">
+           <section className="container-menu">
+            <div className="info-table-client">
+              <select
+                className="select-table"
+                name="Mesa: "
+                onChange={(event) => setTable(event.target.value)}
+              >
+                <option value="mesa01">Mesa</option>
+                <option value="mesa01">01</option>
+                <option value="mesa02">02</option>
+                <option value="mesa03">03</option>
+                <option value="mesa04">04</option>
+                <option value="mesa05">05</option>
+              </select>
+
+              <Input
+                className="input-client"
+                placeholder="Cliente"
+                name="client"
+                value={client}
+                onChange={onChangeClient}
+              />
+            </div>
             <Button
               onClick={() => {
-                setMenu("breakMenu");
+                setMenu("breakfast");
               }}
             >
-              <p className="name-button">Breakfast</p>
+              <p className="name-button">Café da Manhã</p>
             </Button>
             <Button
               onClick={() => {
-                setMenu("MainMenu");
+                setMenu("all-day");
               }}
             >
-              <p className="name-button">Main Menu</p>
+              <p className="name-button">Menu Principal</p>
             </Button>
           </section>
 
@@ -70,7 +93,7 @@ const Salon = () => {
         </section>
 
         <section className="orders-area">
-          <section className="btn-orders-conatiner">
+          <section className="button-orders-conatiner">
             <Button text="servir" className="button-orders" onClick={serverOrder}>
               <p className="name-button"> Servir </p>
             </Button>
@@ -83,29 +106,6 @@ const Salon = () => {
             </Button>
           </section>
 
-          <section className="container-order">
-            <div className="info-table-client">
-              <select
-                className="select-table"
-                name="Mesa: "
-                onChange={(event) => setTable(event.target.value)}
-              >
-                <option valeu="mesa01">Mesa</option>
-                <option valeu="mesa01">01</option>
-                <option valeu="mesa02">02</option>
-                <option valeu="mesa03">03</option>
-                <option valeu="mesa04">04</option>
-                <option valeu="mesa05">05</option>
-              </select>
-
-              <Input
-                className="input-client"
-                placeholder="Cliente"
-                name="client"
-                value={client}
-                onChange={onChangeClient}
-              />
-            </div>
             <div className="box-order-itens">
               {order.map((item, index) => (
                 <div key={index}>
@@ -123,7 +123,7 @@ const Salon = () => {
               ))}
 
               <hr />
-              <div className="ajuste-total">
+              <div className="total-sum">
                 <h1>Total R$ {total},00</h1>
               </div>
 

@@ -1,32 +1,31 @@
-
-
-.hall-main{
+.salon-main{
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
-.btn-orders-conatiner{
+.button-orders-conatiner{
   width: 100%;
+  margin: 10px;
   display: flex;
   justify-content: space-evenly;
-  background-color: #9B2D0A;
 }
 
 .name-button{
   font-size: 15px;
 }
 
-
-.menu-container{
-  /*display:flex;*/
-  flex-wrap: wrap;
-  width: 44%;
-  height: fit-content;  
-  justify-content: center;
+.container-menu{
+  display: flex;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-content: space-evenly;
   border-radius: 10px;
-  margin: 2%;
-  /*padding: 2%;*/
+  margin: 1%;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  align-items: flex-start;
+
 };
 
 .container-teste{
@@ -52,6 +51,7 @@
 .info-table-client{
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
   margin-bottom: 5%;
   padding: 5px;
@@ -62,9 +62,11 @@
   width: 100px;
   height: 42px;
   margin: 2%;
-  background-color: #9B2D0A;
-  color: whitesmoke;
+  padding: 10px;
+  background-color: #7BBFA6;
+  color: white;
   font-size: 16px;
+  font-weight: 500;
 }
 
 .box-order-itens{
@@ -74,7 +76,6 @@
   align-items: center;
   align-content: space-between;
   justify-content: space-evenly;
-  flex-wrap: wrap;
   flex-direction: column;
 }
 
@@ -82,23 +83,24 @@
   border-radius: 9px;
   width: 143px;
   height: 38px;
-  background-color: #9B2D0A;
+  background-color: #7BBFA6;
 }  
 
 
 .input-client::placeholder {
-   color: #fff;
+   color: aquamarine;
 
 }
 
 hr{
   margin-top: 2.5rem;
   margin-bottom: 1.5rem;
-  border: 1px solid #9B2D0A;
+  border: 1px solid #7BBFA6;
   width: 90%;
  }
 
 
-.ajuste-total{
+.total-sum{
+  color: white;
   margin-left: 62%;
 }

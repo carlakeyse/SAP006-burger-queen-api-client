@@ -6,7 +6,6 @@ import "./style.css"
 function Products({
     qtd,
     addOnClick,
-    removeOnClick,
     divClassName,
     divKey,
     divName,
@@ -18,6 +17,7 @@ function Products({
     productsPriceKey,
     productsFlavor,
     productsComplement,
+    ImgSrc,
 }) {
     return (
       <>
@@ -31,11 +31,11 @@ function Products({
         >
           <div className="divButton">
             <Button onClick={addOnClick} className="add-button">
-            <GrAdd className="icon-add"/>
+              <GrAdd className="icon-add" />
             </Button>
           </div>
           <div className="boxName">
-            <h1 className="divName" key={productsNameKey}>
+            <h1  key={productsNameKey}>
               {productsName}
             </h1>
           </div>
@@ -43,6 +43,9 @@ function Products({
             {" "}
             {productsFlavor} {productsComplement}
           </h3>
+          <div>
+            <img src={ImgSrc} className="img-food" alt="img-food"></img>
+          </div>
           <h1 className="divComplement"> </h1>
           <h1 className="divPrice" key={productsPriceKey}>
             {" "}
@@ -54,3 +57,5 @@ function Products({
     );
 }
 export default Products;
+
+//

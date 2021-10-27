@@ -24,14 +24,14 @@ button:hover {
     cursor: pointer;
     border-radius: 0.4rem;
     padding: 0.8rem 1.2rem;
-    background-color: #9B2D0A;
-    color:white;
+    background-color: #7D83A7;
+    color:#1E2340;
 }
 
 .button-orders:hover{
     outline: none;
     /* box-shadow: 0 0 0 0px; */
-    background-color: #EAAF36;;
+    background-color: #FFCC80;
 
 }
 

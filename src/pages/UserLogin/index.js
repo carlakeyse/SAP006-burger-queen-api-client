@@ -41,7 +41,7 @@ const UserLogin = () => {
           Entrar
         </Button>
         <br/>
-        <div>
+        <div className='link-login'>
           <Link className='link-login' to='/register'>Cadastrar</Link>
         </div>
       </form>

@@ -1,6 +1,19 @@
 import './Button.css';
 
-const Button = ({ variant, children, onClick, onSubmit, addItem, removeItem }) => {
+const Button = ({children, ...props}) => {
+    return (
+        <button {...props}>
+        {children}
+    </button>
+    );
+};
+
+
+export default Button;
+
+/*/
+
+/*const Button = ({ variant, children, onClick, onSubmit, addItem, removeItem }) => {
     const classes = `button ${variant}`;
 
     return (
@@ -9,16 +22,4 @@ const Button = ({ variant, children, onClick, onSubmit, addItem, removeItem }) =
             {children}            
         </button>
     )
-}
-
-
-export default Button;
-
-/*const Button = ({children, ...props}) => {
-    return (
-        <button {...props}>
-        {children}
-    </button>
-    );
-};*/
-
+}*/

@@ -8,7 +8,7 @@ export const postOrder =  async (requestOrder) => {
       'Authorization': `${token}`,
     },
     body: JSON.stringify(requestOrder)
-  }).then((res) => res.json())
+  })
 }
 
 export default postOrder;

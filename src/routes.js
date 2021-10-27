@@ -5,8 +5,8 @@ import Login from "./pages/UserLogin/index";
 import Register from "./pages/Register";
 import Salon from "./pages/Salon";
 import Kitchen from "./pages/Kitchen";
-import Orders from "./pages/Orders/Order";
-import ServeOrder from "./pages/Orders/ServeOrder";
+import Orders from "./pages/Salon/Order";
+import ServeOrder from "./pages/Salon/ServeOrder";
 import NotFound from "./pages/NotFound/notFound";
 
 

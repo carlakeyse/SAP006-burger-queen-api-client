@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import "../../index.css";
 
@@ -7,6 +8,7 @@ function ServeOrder() {
   const token = localStorage.getItem("token");
   const [orderStatus, setOrderStatus] = useState([]);
   const url = "https://lab-api-bq.herokuapp.com/orders/";
+  const history = useHistory();
 
   useEffect(() => {
     fetch(url, {
@@ -18,10 +20,11 @@ function ServeOrder() {
     })
       .then((response) => response.json())
       .then((orders) => {
+        console.log(orders)
         const status = orders.filter((itens) => itens.status.includes("ready"));
         setOrderStatus(status);
       });
-  });
+  },[]);
 
   const setStatus = (id, newStatus) => {
     const status = { status: newStatus };
@@ -39,11 +42,19 @@ function ServeOrder() {
       });
     });
   };
+  const preparationTime = (deliveryTime, criationTime) => {
+    const difference = Math.abs(new Date(deliveryTime) - new Date(criationTime));
+    return Math.floor(difference / 1000 / 60 );
+}
 
   return (
     <>
       <header name="Pedidos para entregar" />
-
+      <Button 
+            className='button-global'
+            onClick={() => history.goBack()}> 
+            Voltar
+        </Button>
       <section>
         {orderStatus.map((order) => {
           return (
@@ -53,6 +64,14 @@ function ServeOrder() {
                 <p>ID: {order.id} </p>
                 <p>Cliente: {order.client_name} </p>
                 <p>Mesa: {order.table} </p>
+                {order.status === "ready" || order.status === "finished" ? (
+                  <p>
+                    Tempo de preparação:{" "}
+                    {preparationTime(order.updatedAt, order.createdAt)} min
+                  </p>
+                ) : (
+                  ""
+                )}
                 <time>
                   {`${new Date(order.createdAt).toLocaleDateString(
                     "pt-br"
@@ -68,8 +87,8 @@ function ServeOrder() {
                       {items.qtd}
                       {items.name}
                     </p>
-                    <p>{items.flavor}</p>
-                    <p>{items.complement}</p>
+                    <p>{items.flavor === "null" ? "" : items.flavor}</p>
+                    <p>{items.complement === "null" ? "" : items.complement}</p>
                   </div>
                 ))}
 

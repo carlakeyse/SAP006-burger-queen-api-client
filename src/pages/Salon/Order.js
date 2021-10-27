@@ -1,11 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "../../index.css";
+import { useHistory } from "react-router-dom";
+import Button from "../../components/Button/Button";
+import "../Kitchen/style.css";
 
 function Orders() {
   const token = localStorage.getItem("token");
   const [orderStatus, setOrderStatus] = useState([]);
   const url = "https://lab-api-bq.herokuapp.com/orders/";
+  const history = useHistory();
 
   useEffect(() => {
     fetch(url, {
@@ -17,16 +20,21 @@ function Orders() {
     })
       .then((response) => response.json())
       .then((orders) => {
-        const status = orders.filter((itens) =>
-          itens.status.includes("delivered")
+        const status = orders.filter((items) =>
+          items.status.includes("delivered")
         );
         setOrderStatus(status);
       });
-  });
+  },[]);
 
   return (
     <>
       <header name="Pedidos Entregues" />
+      <Button 
+            className='button-global'
+            onClick={() => history.goBack()}>  
+        Voltar
+        </Button>
       <section>
         {orderStatus.map((order) => {
           return (
@@ -48,11 +56,10 @@ function Orders() {
                 {order.Products.map((items, index) => (
                   <div key={index}>
                     <p>
-                      {" "}
                       {items.qtd} {items.name}
                     </p>
-                    <p>{items.flavor}</p>
-                    <p>{items.complement}</p>
+                    <p>{items.flavor === 'null' ? '' : items.flavor}</p>
+                    <p>{items.complement  === 'null' ? '' : items.complement}</p>
                   </div>
                 ))}
               </div>

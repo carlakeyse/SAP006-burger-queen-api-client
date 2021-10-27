@@ -23,7 +23,7 @@ function Kitchen() {
         );
         setpreparOrder(pendingOrder);
       });
-  });
+  },[]);
 
   const handleStatusOrder = (id, newStatus) => {
     const status = { status: newStatus };
@@ -72,8 +72,8 @@ function Kitchen() {
                 {order.Products.map((items, index) => (
                   <div key={index}>
                     <p>
-                      {" "}
-                      {items.qtd} {items.name}
+                      {items.qtd}
+                      {items.name}
                     </p>
                     <p>{items.flavor}</p>
                     <p>{items.complement}</p>

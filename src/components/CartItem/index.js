@@ -32,17 +32,15 @@ function CartItem({
             {productsName}
           </h1>
           <h1 className="item-complement">
-            {" "}
-            {productsFlavor} {productsComplement}
+           {productsFlavor} {productsComplement}
           </h1>
         </div>
         <div className="item-price">
           <h1 className="divPrice" key={productsPriceKey}>
-            {" "}
-            {divId} R${productsPrice},00
+           {divId} R${productsPrice},00
           </h1>
         </div>
-        <div classname="box-flavor"></div>
+        <div className="box-flavor"></div>
         <h1>{qtd}</h1>
 
         <Button onClick={removeOnClick} 

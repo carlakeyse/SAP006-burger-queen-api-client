@@ -95,21 +95,19 @@ import "./style.css";
     const total = amount(order)
   
       const handleSubmit = (event) => {
-        event.preventDefault(); 
-        
-          const requestOrder = ({
-            "client": client,
-            "table": table,
-            "products":
-              order.map((item) => (
-                {
-                  id: Number(item.id),
-                  qtd: Number(item.qtd),
-                }))
-          })
-          postOrder(requestOrder);
-          setOrder([]);        
-        }
+        event.preventDefault();
+
+        const requestOrder = {
+          client: client,
+          table: table,
+          products: order.map((item) => ({
+            id: Number(item.id),
+            qtd: Number(item.qtd),
+          })),
+        };
+        postOrder(requestOrder);
+        setOrder([]);
+      };
   
 
   const history = useHistory();
@@ -132,12 +130,12 @@ import "./style.css";
                 name="Mesa: "
                 onChange={(event) => setTable(event.target.value)}
               >
-                <option value="mesa01">Mesa</option>
-                <option value="mesa01">01</option>
-                <option value="mesa02">02</option>
-                <option value="mesa03">03</option>
-                <option value="mesa04">04</option>
-                <option value="mesa05">05</option>
+                <option value="01">Mesa</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
               </select>
 
               <Input
@@ -165,16 +163,16 @@ import "./style.css";
           </section>
 
           {selectProducts &&
-            selectProducts.map((item) => (
-              <div key={item.id}>
+            selectProducts.map((items, index) => (
+              <div key={index}>
                 <Products
                   divClassName="box-products"
-                  productsName={item.name}
-                  ImgSrc={item.image}
-                  productsFlavor={item.flavor}
-                  productsComplement={item.complement}
-                  productsPrice={item.price}
-                  addOnClick={(event) => addItem(event, item)}
+                  productsName={items.name}
+                  ImgSrc={items.image}
+                  productsFlavor={items.flavor}
+                  productsComplement={items.complement}
+                  productsPrice={items.price}
+                  addOnClick={(event) => addItem(event, items)}
                 />
               </div>
             ))}
@@ -183,29 +181,29 @@ import "./style.css";
         <section className="orders-area">
           <section className="button-orders-conatiner">
             <Button text="servir" className="button-orders" onClick={serverOrder}>
-              <p className="name-button"> Servir </p>
+              <p className="name-button"> Pedidos </p>
             </Button>
             <Button
               text="pedidos"
               className="button-orders"
               onClick={ReadyOrder}
             >
-              <p className="name-button"> Prontos </p>
+              <p className="name-button"> Finalizados </p>
             </Button>
           </section>
 
             <div className="box-order-itens">
-              {order.map((item, index) => (
-                <div key={item.id}>
+              {order.map((items, index) => (
+                <div key={index}>
                   <CartItem
                     divClassName="order-itens"
-                    productsName={item.name}
-                    productsPrice={item.price}
-                    productsFlavor={item.flavor}
-                    products={item.qtd}
-                    qtd={item.qtd}
-                    productsComplement={item.complement}
-                    removeOnClick={(event) => removeItem(event, item, index)}
+                    productsName={items.name}
+                    productsPrice={items.price}
+                    productsFlavor={items.flavor}
+                    products={items.qtd}
+                    qtd={items.qtd}
+                    productsComplement={items.complement}
+                    removeOnClick={(event) => removeItem(event, items, index)}
                   />
                 </div>
               ))}
@@ -217,7 +215,7 @@ import "./style.css";
              
               <Button
                 text="enviar para a cozinha"
-                onClick={handleSubmit}>
+                onClick={(event) => handleSubmit(event)}>
                 Enviar
               </Button>
             </div>

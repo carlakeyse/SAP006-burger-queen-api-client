@@ -1,0 +1,52 @@
+
+h1 {
+    text-align: center;
+}
+
+
+.container-login {
+  display: flex;
+  justify-content: center;
+  min-width: 13em;
+  min-height: 13em;  
+  padding: 6% 8% 2% 8%;
+}
+
+.user-login {
+  width: 20em;
+  height: 25em;
+  margin-top: auto;
+  background-color: #787BBE;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px 0px #00000060;
+}
+
+.label-login{
+  color: aqua;
+  font-weight: 600;
+  padding: 5px 70px;
+}
+
+.error-message-login {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #1E2340;
+}
+
+.link-login {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 1px;
+    margin: 10px;
+    text-decoration: none;
+    color: #FFCC80;
+}
+
+.link-login:hover{
+  transition: all .2s ease-out;
+  color: #1E2340;
+}

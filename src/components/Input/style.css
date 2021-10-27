@@ -1,0 +1,20 @@
+input {
+  background: #FFCC80;
+  font-weight: 500;
+  /*margin: 5px 50px 5px;*/
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  padding: 5px 20px;
+  color: #580201;
+}
+
+input[type="radio"] {
+  background-color: initial;
+  cursor: pointer;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 0px 5px;
+  padding: initial;
+  border: initial;
+}

@@ -4,16 +4,12 @@ h1 {
   text-align: center;
  }
 
-@media only screen and (max-width: 768px) {
- 
- [class*="col-"] {
-   width: 100%;
-  }
-}
+ @media(max-width:1024px){
 .astron-logo{
   background-image: url(../../assets/img/stellar.png);
   background-size: cover;
   background-repeat: no-repeat;
+ }
 }
 .container-login {
   display: flex;

@@ -23,7 +23,7 @@ function Kitchen() {
         );
         setpreparOrder(pendingOrder);
       });
-  },[]);
+  },[token]);
 
   const handleStatusOrder = (id, newStatus) => {
     const status = { status: newStatus };

@@ -25,7 +25,7 @@ function Orders() {
         );
         setOrderStatus(status);
       });
-  },[]);
+  },[token]);
 
   return (
     <>

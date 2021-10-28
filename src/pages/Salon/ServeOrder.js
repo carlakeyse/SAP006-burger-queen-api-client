@@ -24,7 +24,7 @@ function ServeOrder() {
         const status = orders.filter((itens) => itens.status.includes("ready"));
         setOrderStatus(status);
       });
-  },[]);
+  },[token]);
 
   const setStatus = (id, newStatus) => {
     const status = { status: newStatus };

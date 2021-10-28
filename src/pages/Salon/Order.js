@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "../../components/Button/Button";
-import "../Kitchen/style.css";
+import "../kitchen/style.css";
 
 function Orders() {
   const token = localStorage.getItem("token");

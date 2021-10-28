@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Login from "./pages/UserLogin/index";
-import Register from "./pages/Register";
+import Register from "./pages/register/index";
 import Salon from "./pages/Salon";
-import Kitchen from "./pages/Kitchen/index";
+import Kitchen from "./pages/kitchen/index";
 import Orders from "./pages/Salon/Order";
 import ServeOrder from "./pages/Salon/ServeOrder";
 import NotFound from "./pages/NotFound/notFound";

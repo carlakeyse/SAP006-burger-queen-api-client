@@ -1,9 +1,10 @@
+@media(max-width:1024px){
 .salon-main{
   width: 100%;
   display: flex;
   justify-content: space-around;
+ }
 }
-
 .button-orders-conatiner{
   width: 100%;
   margin: 10px;
@@ -28,7 +29,7 @@
 
 };
 
-.container-teste{
+.input-container{
   width: 100%;
   /*display: flex;*/
   justify-content:space-between;
@@ -41,14 +42,16 @@
   margin: 2%;
 }
 .container-order{
-  width: 95%;
-  margin: 3%;
-  border: solid 2px #9B2D0A;
-  border-radius: 10px;
+  background-color: #787bbe;
+  width: 246px;
+  margin: 53px;
+  border: solid 10px #ffcc80;
+  border-radius: 29px;
   align-items: center;
 }
 
 .info-table-client{
+  background: antiquewhite;
   width: 100%;
   display: flex;
   align-items: center;
@@ -60,12 +63,12 @@
 .select-table{
   border-radius: 5px;
   width: 100px;
-  height: 42px;
+  height: 36px;
   margin: 2%;
   padding: 10px;
   background-color: #B9BFD9;
   color: #1E2340;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 

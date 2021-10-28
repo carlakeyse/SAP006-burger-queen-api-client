@@ -49,7 +49,7 @@ function ServeOrder() {
 
   return (
     <>
-      <header name="Pedidos para entregar" />
+      <header name="Pedidos prontos para servir" />
       <Button 
             className='button-global'
             onClick={() => history.goBack()}> 
@@ -60,7 +60,7 @@ function ServeOrder() {
           return (
             <section className="orders" key={order.id}>
               <div className="">
-                <h1> {order.status.replace("ready", "Para servir")} </h1>
+                <h1> {order.status.replace("ready", "Pedido Pronto")} </h1>
                 <p>ID: {order.id} </p>
                 <p>Cliente: {order.client_name} </p>
                 <p>Mesa: {order.table} </p>

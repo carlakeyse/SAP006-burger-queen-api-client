@@ -123,102 +123,108 @@ import "./style.css";
       <div>
         <section className="salon-main">
           <section className="container-menu">
-           <section className="container-menu">
-            <div className="info-table-client">
-              <select
-                className="select-table"
-                name="Mesa: "
-                onChange={(event) => setTable(event.target.value)}
-              >
-                <option value="01">Mesa</option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-              </select>
+            <section className="container-menu">
+              <div className="info-table-client">
+                <select
+                  className="select-table"
+                  name="Mesa: "
+                  onChange={(event) => setTable(event.target.value)}
+                >
+                  <option value="01">Mesa</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                </select>
 
-              <Input
-                className="input-client"
-                placeholder="Cliente"
-                name="client"
-                value={client}
-                onChange={onChangeClient}
-              />
-            </div>
-            <Button
-              onClick={() => {
-                setMenu("breakfast");
-              }}
-            >
-              <p className="name-button">Café da Manhã</p>
-            </Button>
-            <Button
-              onClick={() => {
-                setMenu("all-day");
-              }}
-            >
-              <p className="name-button">Menu Principal</p>
-            </Button>
-          </section>
-
-          {selectProducts &&
-            selectProducts.map((items, index) => (
-              <div key={index}>
-                <Products
-                  divClassName="box-products"
-                  productsName={items.name}
-                  ImgSrc={items.image}
-                  productsFlavor={items.flavor}
-                  productsComplement={items.complement}
-                  productsPrice={items.price}
-                  addOnClick={(event) => addItem(event, items)}
+                <Input
+                  className="input-client"
+                  placeholder="Cliente"
+                  name="client"
+                  value={client}
+                  onChange={onChangeClient}
                 />
               </div>
-            ))}
-        </section>
+              <Button
+                onClick={() => {
+                  setMenu("breakfast");
+                }}
+              >
+                <p className="name-button">Café da Manhã</p>
+              </Button>
+              <Button
+                onClick={() => {
+                  setMenu("all-day");
+                }}
+              >
+                <p className="name-button">Menu Principal</p>
+              </Button>
+            </section>
 
-        <section className="orders-area">
-          <section className="button-orders-conatiner">
-            <Button text="servir" className="button-orders" onClick={serverOrder}>
-              <p className="name-button"> Pedidos </p>
-            </Button>
-            <Button
-              text="pedidos"
-              className="button-orders"
-              onClick={ReadyOrder}
-            >
-              <p className="name-button"> Finalizados </p>
-            </Button>
-          </section>
-
-            <div className="box-order-itens">
-              {order.map((items, index) => (
+            {selectProducts &&
+              selectProducts.map((items, index) => (
                 <div key={index}>
-                  <CartItem
-                    divClassName="order-itens"
+                  <Products
+                    divClassName="box-products"
                     productsName={items.name}
-                    productsPrice={items.price}
+                    ImgSrc={items.image}
                     productsFlavor={items.flavor}
-                    products={items.qtd}
-                    qtd={items.qtd}
                     productsComplement={items.complement}
-                    removeOnClick={(event) => removeItem(event, items, index)}
+                    productsPrice={items.price}
+                    addOnClick={(event) => addItem(event, items)}
                   />
                 </div>
               ))}
+          </section>
 
-             
-              <div className="total-sum">
-                <h1>Total R$ {total},00</h1>
-              </div>
-             
+          <section className="orders-area">
+            <section className="button-orders-conatiner">
               <Button
-                text="enviar para a cozinha"
-                onClick={(event) => handleSubmit(event)}>
-                Enviar
+                text="servir"
+                className="button-orders"
+                onClick={serverOrder}
+              >
+                <p className="name-button"> Pedidos </p>
               </Button>
-            </div>
+              <Button
+                text="pedidos"
+                className="button-orders"
+                onClick={ReadyOrder}
+              >
+                <p className="name-button"> Finalizados </p>
+              </Button>
+            </section>
+
+            <section className="container-order">
+              <div className="box-order-itens">
+                {order.map((items, index) => (
+                  <div key={index}>
+                    <CartItem
+                      divClassName="order-itens"
+                      productsName={items.name}
+                      productsPrice={items.price}
+                      productsFlavor={items.flavor}
+                      products={items.qtd}
+                      qtd={items.qtd}
+                      productsComplement={items.complement}
+                      removeOnClick={(event) => removeItem(event, items, index)}
+                    />
+                  </div>
+                ))}
+
+                <div className="total-sum">
+                  <h1>Total R$ {total},00</h1>
+                </div>
+
+                <Button
+                  text="enviar para a cozinha"
+                  onClick={(event) => handleSubmit(event)}
+                >
+                  Enviar
+                </Button>
+              </div>
+            </section>
           </section>
         </section>
       </div>

@@ -45,11 +45,7 @@ function CartItem({
 
         <Button onClick={removeOnClick} 
         className="remove-button"
-        style={{borderRadius: '50%', 
-        padding: '10px',
-        margin: '5px 5px',
-        alignItems: 'center',
-        boxShadow: '0px 4px 4px rgb(0 0 0 / 25%)'}} > - </Button>
+         > - </Button>
       </div>
     </>
   );

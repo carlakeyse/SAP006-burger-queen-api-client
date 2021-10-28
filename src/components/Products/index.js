@@ -35,18 +35,18 @@ function Products({
             </Button>
           </div>
           <div className="boxName">
-            <h1  key={productsNameKey}>
+            <h1 className="product-name" key={productsNameKey}>
               {productsName}
             </h1>
           </div>
-          <h3 className="divFlavor">
+          <h2 className="divFlavor">
             {" "}
             {productsFlavor} {productsComplement}
-          </h3>
+          </h2>
           <div>
             <img src={ImgSrc} className="img-food" alt="img-food"></img>
           </div>
-          <h1 className="divComplement"> </h1>
+          
           <h1 className="divPrice" key={productsPriceKey}>
             {" "}
             {divId} R${productsPrice},00

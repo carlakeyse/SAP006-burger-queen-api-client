@@ -12,7 +12,8 @@
     flex-wrap: wrap;
   }
   
-  .orders { 
+  .orders {
+    background-color: #787BBE;
     left: 7rem;
     text-transform:uppercase;
     font-size: 1rem;
@@ -23,7 +24,7 @@
     padding: 1.25rem 1.25rem;
     top: 2rem;
     font-weight: 500;
-    border: 3px solid #9B2D0A;
+    border: 3px solid #FFCC80;
     margin: 20px;
   }
   
@@ -46,7 +47,7 @@
   hr {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    border: 1px solid #9B2D0A;
+    border: 1px solid #FFCC80;
   }
   
   .break-line {
